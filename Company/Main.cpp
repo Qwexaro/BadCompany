@@ -1,8 +1,12 @@
 #include "Company.h"
 
-
-int main()
+int main() 
 {
+    std::vector<Company> company;
 
-	return 0;
+    company.push_back(Company(true));
+
+    runMenu(company);
+
+    return 0;
 }

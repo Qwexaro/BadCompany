@@ -1,0 +1,9 @@
+﻿  Company.cpp
+  Main.cpp
+  Menu.cpp
+C:\Users\Sergi\source\repos\Company\Company\Menu.cpp(35,81): warning C4244: аргумент: преобразование "long double" в "__int64", возможна потеря данных
+C:\Users\Sergi\source\repos\Company\Company\Menu.cpp(35,71): warning C4244: аргумент: преобразование "long double" в "__int64", возможна потеря данных
+C:\Users\Sergi\source\repos\Company\Company\Menu.cpp(35,44): warning C4244: аргумент: преобразование "long double" в "__int64", возможна потеря данных
+C:\Users\Sergi\source\repos\Company\Company\Menu.cpp(35,37): warning C4244: аргумент: преобразование "long double" в "__int64", возможна потеря данных
+  Создание кода...
+  Company.vcxproj -> C:\Users\Sergi\source\repos\Company\x64\Debug\Company.exe

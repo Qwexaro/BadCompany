@@ -2,25 +2,39 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 class Company
 {
-	std::string name, income, expenses;
-	long long turnover, net_profit;
+	std::string name;
+	long long turnover, net_profit, income, expenses;
 	bool company_private;
 
 public:
-	
+
 	Company();
 	Company(bool _company_private);
-	Company(std::string _name, std::string _income, std::string _expenses, bool _company, long long _turnover, long long _net_profit);
-		
-	std::string getName() const;
-	std::string getIncome() const;
-	std::string getExpenses() const;
+	Company(std::string _name, long long _income, long long _expenses, bool _company_private, long long _turnover, long long _net_profit);
 
-	double getTurnover() const;
-	double getNetProfit() const;
+	std::string getName() const;
+	long long getIncome() const;
+	long long getExpenses() const;
+
+	long long getTurnover() const;
+	long long getNetProfit() const;
+	bool getCompanyPrivateTrue() const;
+
+	/*Company& setName(std::string& _name);
+	Company& setIncome(long long& _icome);
+	Company& setExpenses(long long& _expenses);*/
+
+	void printPublicCompanyInfo() const;
+
+	void checkCompanyTurnover() const;
 
 	void printInfo() const;
+	void printFullInfo() const;
+	void printNameCompany() const;
 };
+
+void runMenu(std::vector<Company>& company);
