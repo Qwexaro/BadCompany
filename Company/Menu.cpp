@@ -12,7 +12,8 @@ void exit()
 
 void printCompany(std::vector<Company> company)
 {
-    system("cls"); for (int i = 0; i < company.size(); i++) company.at(i).printInfo();
+    system("cls"); 
+    for (int i = 0; i < company.size(); i++) company.at(i).printInfo();
 }
 
 void options()
@@ -33,7 +34,6 @@ void createCompany(std::vector<Company>& company)
 
     std::cout << "Is your company state-owned?\n1 - yes\n0 - no" << std::endl; std::cin >> company_private;
     company.push_back(Company(name, icome, expenses, company_private, turnover, net_profit));
-
 }
 
 void runMenu(std::vector<Company>& company)

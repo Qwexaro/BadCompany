@@ -4,7 +4,8 @@ int main()
 {
     std::vector<Company> company;
 
-    company.push_back(Company(true));
+    // crete company stated-owned
+    company.push_back(Company(false));
 
     runMenu(company);
 

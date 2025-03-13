@@ -1,18 +1,18 @@
 #include "Company.h"
 
 Company::Company() :
-	name{ "unknow" }, income{ -1 }, expenses{ -1 }, turnover{ -1 }, net_profit{ -1 }, company_private{ false } {}
+	name{ "unknow" }, income{ -3 }, expenses{ -1 }, turnover{ -1 }, net_profit{ -1 }, is_public{ true } {}
 
 Company::Company(bool _company_private) : 
-	Company() { _company_private = company_private; }
+	Company() { is_public = _company_private; }
 
 
-Company::Company(std::string _name, long long _income, long long _expenses, bool _company_private, long long _turnover, long long _net_profit)
+Company::Company(std::string _name, long long _income, long long _expenses, bool is_public, long long _turnover, long long _net_profit)
 {
-	this->name = _name;
-	this->income = _income;
-	this->expenses = _expenses;
-	this->company_private = _company_private;
+	setName(_name);
+	setIncome(_income);
+	setExpenses(_expenses);
+	this->is_public = is_public;
 	this->turnover = _turnover;
 	this->net_profit = _net_profit;
 }
@@ -24,29 +24,93 @@ std::string Company::getName() const
 
 long long Company::getIncome() const
 {
-	return income;
+	if (!isPublic())
+	{
+		if (turnover >= 5000000)
+		{
+			return income;
+		}
+		else
+		{
+			return -1;
+		}
+	}
+	else
+	{
+		return -1;
+	}
 }
 
 long long Company::getExpenses() const
 {
-	return expenses;
+	if (!isPublic())
+	{
+		if (turnover >= 5000000)
+		{
+			return expenses;
+		}
+		else
+		{
+			return -1;
+		}
+	}
+	else
+	{
+		return -1;
+	}
 }
 
 long long Company::getTurnover() const
 {
-	return turnover;
+	if (isPublic() && turnover > 0|| turnover >= 5000000 && turnover > 0)
+	{
+		return turnover;
+	}
+	else
+	{
+		return -1;
+	}
 }
 
 long long Company::getNetProfit() const
 {
-	return net_profit;
+	if (!isPublic())
+	{
+		if (turnover >= 5000000)
+		{
+			return net_profit;
+		}
+		else
+		{
+			return -1;
+		}
+	}
+	else
+	{
+		return -1;
+	}
 }
 
-bool Company::getCompanyPrivateTrue() const
+bool Company::isPublic() const
 {
-	return company_private;
+	return is_public;
 }
 
+Company& Company::setName(std::string& _name)
+{
+	name = _name;
+	return *this;
+}
+Company& Company::setIncome(long long& _income)
+{
+	if (_income > 0) income = _income;
+	return *this;
+}
+Company& Company::setExpenses(long long& _expenses)
+{
+	if (_expenses > 0) expenses = _expenses;
+	return *this;
+}
 
 void Company::printFullInfo() const
 {
@@ -66,11 +130,10 @@ void Company::printNameCompany() const
 
 void Company::checkCompanyTurnover() const
 {
-	getTurnover() < 5000000 ? printNameCompany() : printFullInfo();
-	
+	getTurnover() < 5000000 ? printNameCompany() : printFullInfo();	
 }
 
 void Company::printInfo() const
-{ 
-	getCompanyPrivateTrue() ? printPublicCompanyInfo() : checkCompanyTurnover();
+{
+	isPublic() ? printPublicCompanyInfo() : checkCompanyTurnover();
 }

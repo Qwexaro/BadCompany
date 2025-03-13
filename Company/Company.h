@@ -8,7 +8,7 @@ class Company
 {
 	std::string name;
 	long long turnover, net_profit, income, expenses;
-	bool company_private;
+	bool is_public;
 
 public:
 
@@ -22,11 +22,11 @@ public:
 
 	long long getTurnover() const;
 	long long getNetProfit() const;
-	bool getCompanyPrivateTrue() const;
+	bool isPublic() const;
 
-	/*Company& setName(std::string& _name);
+	Company& setName(std::string& _name);
 	Company& setIncome(long long& _icome);
-	Company& setExpenses(long long& _expenses);*/
+	Company& setExpenses(long long& _expenses);
 
 	void printPublicCompanyInfo() const;
 
