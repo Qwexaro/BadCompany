@@ -2,7 +2,7 @@
 
 void errorMessage()
 {
-    system("cls"); std::cout << "Command is not define !" << std::endl;
+    system("cls"); std::cout << "Command is not define!" << std::endl;
 }
 
 void exit()
@@ -32,7 +32,7 @@ void createCompany(std::vector<Company>& company)
     long double turnover = icome + expenses;
     long double net_profit = icome - expenses;
 
-    std::cout << "Is your company state-owned?\n1 - yes\n0 - no" << std::endl; std::cin >> company_private;
+    std::cout << "Is your company state-owned?\n1 - yes\n0 - no\n~> "; std::cin >> company_private;
     company.push_back(Company(name, icome, expenses, company_private, turnover, net_profit));
 }
 
