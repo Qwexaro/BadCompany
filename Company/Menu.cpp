@@ -14,6 +14,10 @@ void printCompany(std::vector<Company> company)
 {
     system("cls"); 
     for (int i = 0; i < company.size(); i++) company.at(i).printInfo();
+
+    /*std::cout << "\n";
+    std::cout << "Hacks info: " << std::endl;
+    company.at(1).printFullInfo();*/
 }
 
 void options()
