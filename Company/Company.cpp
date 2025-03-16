@@ -1,7 +1,7 @@
 #include "Company.h"
 
 Company::Company() :
-	name{ "unknow" }, income{ -3 }, expenses{ -1 }, turnover{ -1 }, net_profit{ -1 }, is_public{ true } {}
+	name{ "unknow" }, income{ 0 }, expenses{ 0 }, turnover{ 0 }, net_profit{ 0 }, is_public{ true } {}
 
 Company::Company(bool _is_public) : 
 	Company() { is_public = _is_public; }
@@ -23,16 +23,9 @@ std::string Company::getName() const
 
 long long Company::getIncome() const
 {
-	if (!isPublic())
+	if (!isPublic() && getTurnover() > 5000000)
 	{
-		if (turnover >= 5000000)
-		{
-			return income;
-		}
-		else
-		{
-			return -1;
-		}
+		return income;
 	}
 	else
 	{
@@ -42,16 +35,9 @@ long long Company::getIncome() const
 
 long long Company::getExpenses() const
 {
-	if (!isPublic())
+	if (!isPublic() && getTurnover() > 5000000)
 	{
-		if (turnover >= 5000000)
-		{
-			return expenses;
-		}
-		else
-		{
-			return -1;
-		}
+		return expenses;
 	}
 	else
 	{
@@ -61,11 +47,16 @@ long long Company::getExpenses() const
 
 long long Company::getTurnover() const
 {
-	if (isPublic() && turnover > 0|| turnover >= 5000000 && turnover > 0)
+	long long turnover = income + expenses;
+	if (!isPublic() && turnover > 5000000) 
 	{
 		return turnover;
 	}
-	else
+	if (isPublic()) 
+	{
+		return turnover;
+	}
+	else 
 	{
 		return -1;
 	}
@@ -73,16 +64,9 @@ long long Company::getTurnover() const
 
 long long Company::getNetProfit() const
 {
-	if (!isPublic())
+	if (!isPublic() && getTurnover() > 5000000)
 	{
-		if (turnover >= 5000000)
-		{
-			return net_profit;
-		}
-		else
-		{
-			return -1;
-		}
+		return net_profit;
 	}
 	else
 	{
