@@ -47,7 +47,6 @@ long long Company::getExpenses() const
 
 long long Company::getTurnover() const
 {
-	long long turnover = income + expenses;
 	if (!isPublic() && turnover > 5000000) 
 	{
 		return turnover;
@@ -64,7 +63,7 @@ long long Company::getTurnover() const
 
 long long Company::getNetProfit() const
 {
-	if (!isPublic() && getTurnover() > 5000000)
+	if (!isPublic() && turnover > 5000000)
 	{
 		return net_profit;
 	}
@@ -85,12 +84,21 @@ Company& Company::setName(std::string& _name)
 }
 Company& Company::setIncome(long long& _income)
 {
-	if (_income > 0) income = _income; return *this;
+	if (_income > 0) {
+		income = _income; 
+		turnover = income + expenses;
+		net_profit = income - expenses;
+		return *this;
+	}
 }
 Company& Company::setExpenses(long long& _expenses)
 {
-	if (_expenses > 0) expenses = _expenses; 
-	return *this;
+	if (_expenses > 0) {
+		expenses = _expenses;
+		turnover = income + expenses;
+		net_profit = income - expenses;
+		return *this;
+	}
 }
 
 void Company::printFullInfo() const
