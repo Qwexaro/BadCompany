@@ -1,12 +1,14 @@
 #include "Company.h"
 
-int main() 
+int main()
 {
-    std::vector<Company> company;
-    
-    company.push_back(Company(false));
+	system("chcp 1251");
 
-    runMenu(company);
+	std::vector<Company> company;
 
-    return 0;
+	company.push_back(Company(false));
+
+	runMenu(company);
+
+	return 0;
 }

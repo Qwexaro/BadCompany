@@ -17,7 +17,7 @@ void printCompany(std::vector<Company> company)
 
     /*std::cout << "\n";
     std::cout << "Hacks info: " << std::endl;
-    company.at(1).printFullInfo();*/
+    company.at(1).getTurnover();*/
 }
 
 void options()
